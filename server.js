@@ -1,6 +1,7 @@
 
 const express = require('express');
 const path = require('path');
+const notes = require('./db/db.json')
 
 const PORT = process.env.PORT || 3001;
 
@@ -16,6 +17,17 @@ app.get('/notes', (req, res) =>
 
 app.get('*', (req, res) =>
     res.sendFile(path.join(__dirname, '/public/index.html'))
+);
+
+app.get('/api/notes', (req,res) => {
+    res.json(notes)}
+);
+
+app.post('/api/notes', (req,res) => {
+    let newNote = {
+        title: req.body.title,
+        text: req.body.text,
+    }}
 );
 
 app.listen(process.env.port || 3000);
