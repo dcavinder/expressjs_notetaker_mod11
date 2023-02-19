@@ -5,6 +5,7 @@ let notes = require('./db/db.json')
 const PORT = process.env.PORT || 3001;
 
 const app = express();
+const numId = Math.floor(Math.random()*90000) + 10000;
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json());
@@ -30,7 +31,7 @@ app.post('/api/notes', (req,res) => {
     let newNote = {
         title: req.body.title,
         text: req.body.text,
-        id: uid(),
+        id: numId,
     }
     notes.push(newNote)
     res.json(200)
