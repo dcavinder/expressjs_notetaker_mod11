@@ -43,5 +43,5 @@ app.delete('/api/notes/:id', (req, res) => {
     res.json(notes)
 })
 
-app.listen(process.env.port || 3001);
+app.listen(process.env.PORT || 3001);
 
