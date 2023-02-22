@@ -8,7 +8,7 @@ const app = express();
 const numId = Math.floor(Math.random()*90000) + 10000;
 
 app.use(express.json());
-app.use(express.urlencoded({ extend: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 //displays notes.html
